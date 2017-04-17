@@ -1,8 +1,9 @@
 ---
 applications:
-- name: demo-node-app-v1
+- name: demo-node-app
   memory: 512M
   instances: 1
+  random-route: true
   env:
     NODE_ENV: dev
     REDIS_SERVICE_NAME: none
