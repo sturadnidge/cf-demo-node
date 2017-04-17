@@ -1,0 +1,33 @@
+{
+  "name": "cf-demo-node",
+  "version": "1.0.0",
+  "author": "Stu Radnidge <sturadnidge@pivotal.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sturadnidge/cf-demo-node/issues"
+  },
+  "homepage": "https://github.com/sturadnidge/cf-demo-node",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sturadnidge/cf-demo-node.git"
+  },
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "body-parser": "^1.0.0",
+    "express": "^4.0.0",
+    "is-cf": "^1.0.0",
+    "jsonwebtoken": "^7.0.0",
+    "lodash": "^4.0.0",
+    "lowdb": "0.13",
+    "redis": "^2.6.3",
+    "uuid": "^1.0.0",
+    "validator": "^6.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.0.0"
+  }
+}

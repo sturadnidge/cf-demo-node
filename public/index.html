@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>PCFS Demo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+  <link href="/css/demo.css" rel="stylesheet">
+  <script>
+  </script>
+</head>
+
+<body>
+  <!-- Vue templates-->
+  <template id="instances-template">
+    <div class="row row-centered" id="instances">
+      <instance-component v-for="(instance, index) in instances" :instance="instance" :index="index">
+      </instance-component>
+    </div>
+  </template>
+
+  <template id="instance-template">
+    <div class="card">
+      <!-- Lava is orange, Sky is blue, Vine is green -->
+      <img :src="'holder.js/100px280?text=index:' + index +  '&theme=' + theme">
+      <p class="card-text">{{ instance }}</p>
+    </div>
+  </template>
+  <!-- End Vue templates-->
+
+  <section class="jumbotron text-xs-center">
+    <div class="container">
+      <img src="/img/cloud_rings.png" alt="Pivotal Cloud Foundry">
+      <h1 class="jumbotron-heading">Pivotal Cloud Foundry</h1>
+      <h2 class="jumbotron-heading">Node.js Demo</h2>
+      <p class="lead text-muted">
+        Below is an array of instances behind this application
+        <br /> (the specific instance you are hitting is coloured Orange)
+        <br />
+        <a href='/killme'>kill this instance</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="album text-muted">
+    <div class="container" id="app">
+      <instances-component :instances="instances"></instances-component>
+    </div>
+  </div>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-xs-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p>&copy; PCFS 2017</p>
+    </div>
+  </footer>
+
+  <!-- core JavaScript
+ ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+  <script src="/js/vendor/holder.min.js"></script>
+  <script>
+    var globalInstance = {};
+
+    // get info synchronously for Vue
+    $.ajax({
+      url: '/info',
+      type: 'get',
+      dataType: 'json',
+      async: false,
+      success: function(data) {
+        globalInstance = data;
+      }
+    });
+
+    //instances component
+    Vue.component('instances-component', {
+      template: '#instances-template',
+      props: ['instances']
+    });
+
+    //instance component
+    Vue.component('instance-component', {
+      template: '#instance-template',
+      props: ['instance', 'index'],
+      computed: {
+        // compare this instance (which is an id) with global instanceId
+        // and set theme to 'lava' if they match
+        theme: function() {
+          return this.instance === globalInstance.instanceId ? 'lava' : globalInstance.theme
+        }
+      }
+    });
+
+    new Vue({
+      el: '#app',
+      data: globalInstance
+    });
+  </script>
+</body>
+
+</html>

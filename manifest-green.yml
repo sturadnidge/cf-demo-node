@@ -1,0 +1,10 @@
+---
+applications:
+- name: demo-node-app-green
+  memory: 512M
+  instances: 1
+  random-route: true
+  env:
+    NODE_ENV: dev
+    REDIS_SERVICE_NAME: none
+    THEME: vine

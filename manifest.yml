@@ -1,0 +1,8 @@
+---
+applications:
+- name: demo-node-app-v1
+  memory: 512M
+  instances: 1
+  env:
+    NODE_ENV: dev
+    REDIS_SERVICE_NAME: none
