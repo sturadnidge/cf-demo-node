@@ -22,7 +22,13 @@
     <div class="card">
       <!-- Lava is orange, Sky is blue, Vine is green -->
       <img :src="'holder.js/100px280?text=index:' + index +  '&theme=' + theme">
-      <p class="card-text">{{ instance }}</p>
+
+      <p class="card-text" v-if="theme === 'lava'">
+        <a :href="'/killme?i=' + index">kill me</a>
+        <br/>
+        {{ instance }}
+      </p>
+      <p class="card-text" v-else>{{ instance }}</p>
     </div>
   </template>
   <!-- End Vue templates-->
@@ -35,8 +41,6 @@
       <p class="lead text-muted">
         Below is an array of instances behind this application
         <br />(the specific instance you are hitting is highlighted)
-        <br />
-        <a href='/killme'>kill this instance</a>
       </p>
     </div>
   </section>
