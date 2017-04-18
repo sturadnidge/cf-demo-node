@@ -12,7 +12,7 @@
 <body>
   <!-- Vue templates-->
   <template id="instances-template">
-    <div class="row row-centered" id="instances">
+    <div class="row" id="instances">
       <instance-component v-for="(instance, index) in instances" :instance="instance" :index="index">
       </instance-component>
     </div>
@@ -34,7 +34,7 @@
       <h2 class="jumbotron-heading">Node.js Demo</h2>
       <p class="lead text-muted">
         Below is an array of instances behind this application
-        <br /> (the specific instance you are hitting is coloured Orange)
+        <br />(the specific instance you are hitting is highlighted)
         <br />
         <a href='/killme'>kill this instance</a>
       </p>
