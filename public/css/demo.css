@@ -44,7 +44,7 @@ body {
 }
 
 .card {
-  float: none;
+  float: left;
   width: 33.333%;
   padding: .75rem;
   margin: 0 auto;
