@@ -1,7 +1,7 @@
 ---
 applications:
 - name: demo-node-app-blue
-  memory: 512M
+  memory: 128M
   instances: 1
   random-route: true
   env:
