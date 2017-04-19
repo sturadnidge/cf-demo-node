@@ -12,7 +12,7 @@
 <body>
   <!-- Vue templates-->
   <template id="instances-template">
-    <div class="row row-centered" id="instances">
+    <div class="row" id="instances">
       <instance-component v-for="(instance, index) in instances" :instance="instance" :index="index">
       </instance-component>
     </div>
@@ -45,8 +45,8 @@
     </div>
   </section>
 
-  <div class="album text-muted">
-    <div class="container" id="app">
+  <div :class="'album text-muted album-' + theme" id="app">
+    <div class="container">
       <instances-component :instances="instances"></instances-component>
     </div>
   </div>

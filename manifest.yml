@@ -7,3 +7,4 @@ applications:
   env:
     NODE_ENV: dev
     REDIS_SERVICE_NAME: none
+    THEME: grey

@@ -8,6 +8,22 @@
   text-align:center;
 }
 
+.album-blue {
+  background-color: blue;
+}
+
+.album-green {
+  background-color: green;
+}
+
+.album-grey {
+  background-color: #f7f7f7;
+}
+
+.album-green {
+  background-color: green;
+}
+
 .jumbotron {
   padding-top: 3rem;
   margin-bottom: 0;
@@ -34,7 +50,6 @@
 .album {
   padding-top: 3rem;
   padding-bottom: 3rem;
-  background-color: #f7f7f7;
 }
 
 .card {
