@@ -1,6 +1,6 @@
 ---
 applications:
-- name: demo-node-app-green
+- name: cf-demo-node-green
   memory: 128M
   instances: 1
   random-route: true
