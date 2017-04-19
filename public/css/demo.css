@@ -8,16 +8,16 @@
   text-align:center;
 }
 
-.album-blue {
-  background-color: blue;
+.bg-blue {
+  background-color: #428bca;
 }
 
-.album-green {
-  background-color: green;
+.bg-green {
+  background-color: #5cb85c;
 }
 
-.album-grey {
-  background-color: #f7f7f7;
+.bg-grey {
+  background-color: #f9f9f9;
 }
 
 .album-green {

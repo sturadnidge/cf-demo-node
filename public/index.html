@@ -20,7 +20,6 @@
 
   <template id="instance-template">
     <div class="card">
-      <!-- Lava is orange, Sky is blue, Vine is green -->
       <img :src="'holder.js/100px280?text=index:' + index +  '&theme=' + theme">
 
       <p class="card-text" v-if="theme === 'lava'">
@@ -45,7 +44,7 @@
     </div>
   </section>
 
-  <div :class="'album text-muted album-' + theme" id="app">
+  <div :class="'album text-muted bg-' + theme" id="app">
     <div class="container">
       <instances-component :instances="instances"></instances-component>
     </div>
