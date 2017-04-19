@@ -13,8 +13,7 @@ body {
 }
 
 .jumbotron {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 3rem;
   margin-bottom: 0;
   background-color: #fff;
 }
@@ -37,7 +36,6 @@ body {
 }
 
 .album {
-  min-height: 50rem; /* Can be removed; just added for demo purposes */
   padding-top: 3rem;
   padding-bottom: 3rem;
   background-color: #f7f7f7;
