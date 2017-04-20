@@ -24,10 +24,8 @@
       <img v-else :src="'holder.js/100px280?text=index:' + index +  '&theme=' + theme">
       <p class="card-text" v-if="thisInstance">
         <a :href="'/killme?i=' + index">kill me</a>
-        <br/>
-        {{ instance }}
       </p>
-      <p class="card-text" v-else>{{ instance }}</p>
+      <p class="card-text" v-else>id: {{ instance }}</p>
     </div>
   </template>
   <!-- End Vue templates-->
