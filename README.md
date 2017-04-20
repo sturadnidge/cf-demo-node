@@ -6,3 +6,5 @@ A simple Node.js app for Cloud Foundry, which can be used to demonstrate:
 - application HA
 - service binding
 - blue / green deployments
+
+[See it in action](https://cf-demo-node.cfapps.io/)

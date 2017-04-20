@@ -20,9 +20,9 @@
 
   <template id="instance-template">
     <div class="card">
-      <img :src="'holder.js/100px280?text=index:' + index +  '&theme=' + theme">
-
-      <p class="card-text" v-if="theme === 'lava'">
+      <img v-if="thisInstance" :src="'holder.js/100px280?text=index:' + index +  '&theme=lava'">
+      <img v-else :src="'holder.js/100px280?text=index:' + index +  '&theme=' + theme">
+      <p class="card-text" v-if="thisInstance">
         <a :href="'/killme?i=' + index">kill me</a>
         <br/>
         {{ instance }}
@@ -39,7 +39,7 @@
       <h2 class="jumbotron-heading">Node.js Demo</h2>
       <p class="lead text-muted">
         Below is an array of instances behind this application
-        <br />(the specific instance you are hitting is highlighted)
+        <br />(the specific instance you are hitting is <span style="color:rgb(246,101,44)">orange</span>)
       </p>
     </div>
   </section>
@@ -95,7 +95,10 @@
         // compare this instance (which is an id) with global instanceId
         // and set theme to 'lava' if they match
         theme: function() {
-          return this.instance === globalInstance.instanceId ? 'lava' : globalInstance.theme
+          return this.instance === globalInstance.instanceId ? 'lava' : globalInstance.theme;
+        },
+        thisInstance: function() {
+          return this.instance === globalInstance.instanceId;
         }
       }
     });
