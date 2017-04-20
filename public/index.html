@@ -23,7 +23,7 @@
       <img v-if="thisInstance" :src="'holder.js/100px280?text=index:' + index +  '&theme=lava'">
       <img v-else :src="'holder.js/100px280?text=index:' + index +  '&theme=' + theme">
       <p class="card-text" v-if="thisInstance">
-        <a :href="'/killme?i=' + index">kill me</a>
+        <a :href="'/killme?id=' + instance">kill me</a>
       </p>
       <p class="card-text" v-else>id: {{ instance }}</p>
     </div>
