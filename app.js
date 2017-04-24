@@ -15,10 +15,12 @@ var app = express();
 
 var apiVersion = 0,
     appId = '',
+    appName = '',
     instanceAddress = '',
     instanceId = '',
     instanceIndex = '',
     redisEnabled = false,
+    theme = '',
     versionPrefix = '';
 
 if (apiVersion !== 0) {
@@ -42,28 +44,34 @@ if (isCF.env()) {
   vcap.instanceId = vcapEnv.instance_id;
   vcap.instanceIndex = vcapEnv.instance_index;
 
+  appName = vcap.applicationName;
   appId = vcap.applicationId;
   instanceAddress = vcap.hostAddress;
   instanceId = vcap.instanceId;
   instanceIndex = vcap.instanceIndex;
   redisEnabled = isCF.getService(process.env.REDIS_SERVICE_NAME) ? true : false;
+  theme = process.env.THEME;
 
   app.set('vcap', vcap);
 
 } else {
 
+  appName = 'cf-demo-node';
   appId = uuid();
   instanceId = appId;
   instanceIndex = 0;
+  theme = 'lava';
 
 }
 
 // set these on app for use within routes
+app.set('applicationName', appName);
 app.set('applicationId', appId);
 app.set('instanceAddress', instanceAddress);
 app.set('instanceId', instanceId);
 app.set('instanceIndex', instanceIndex);
 app.set('redisEnabled', redisEnabled);
+app.set('theme', theme);
 
 // express variables
 app.enable('trust proxy');

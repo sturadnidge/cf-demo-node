@@ -1,80 +1,31 @@
-.about {
-  float: left;
-  max-width: 30rem;
-  margin-right: 3rem;
+html, body {
+  height: 100%;
 }
 
-.row-centered {
-  text-align:center;
+.expander {
+  /* navbar(50px + 1px border + 20px bottom pad) + footer row (50px + 10px margin)*/
+  height: calc(100% - 131px);
 }
 
-.bg-blue {
-  background-color: #428bca;
+.navbar {
+  background-color: #3F484F;
 }
 
-.bg-green {
-  background-color: #5cb85c;
+.navbar-default .navbar-brand {
+  color: #E7E7E7;
+  font-weight: bold;
 }
 
-.bg-grey {
-  background-color: #f9f9f9;
+.line-50 {
+  line-height: 50px;
 }
 
-.album-green {
-  background-color: green;
+.footer {
+  min-height: 50px;
 }
 
-.jumbotron {
-  padding-top: 3rem;
-  margin-bottom: 0;
-  background-color: #fff;
-}
-
-.jumbotron p:last-child {
-  margin-bottom: 0;
-}
-
-.jumbotron-heading {
-  font-weight: 300;
-}
-
-.jumbotron .container {
-  max-width: 40rem;
-}
-
-.jumbotron .container img{
-  max-width: 300px;
-  padding-bottom: 1rem;
-}
-
-.album {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-.card {
-  float: left;
-  width: 33.333%;
-  padding: .75rem;
-  margin: 0 auto;
-  margin-bottom: 2rem;
-  border: 0;
-}
-
-.card > img {
-  margin-bottom: .75rem;
-}
-
-.card-text {
-  font-size: 85%;
-  text-align: center;
-}
-
-footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-footer p {
-  margin-bottom: .25rem;
+@media (max-width: 768px) {
+ .col-xs-12.text-left, .col-xs-12.text-right {
+    text-align: center;
+  }
 }
