@@ -53,7 +53,7 @@
       <div class="col-md-4 col-sm-6 col-xs-12 text-center">
         <img :src="'holder.js/100px280?text=' + index +  '&theme=' + theme">
         <p v-if="thisInstance" class="line-50">
-          <a :href="'/killme?id=' + instance">kill me</a>
+          <a :href="'/killme?id=' + index">kill me</a>
         </p>
         <p v-else class="line-50">id: {{ instance }}</p>
       </div>
