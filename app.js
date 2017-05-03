@@ -111,6 +111,15 @@ app.route('*')
     res.status(404).json(data);
   });
 
+// gracefully handle cf scale down
+process.on('SIGTERM', function() {
+  lib.service.unregister(appId, instanceId, instanceIndex, function(err, result) {
+    if (err) throw err;
+    console.log('gracefully exiting due to SIGTERM');
+    process.exit(0);
+  });
+});
+
 // go go go!
 http.createServer(app).listen(app.get('port'), function(){
   lib.service.register(appId, instanceId, instanceIndex, function(err, result) {
