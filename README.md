@@ -12,4 +12,4 @@ A simple Node.js app for Cloud Foundry, which can be used to demonstrate:
 ![screenshot](screenshot.png)
 
 
-You can see a [live demo here](https://cf-demo-node.cfapps.io/) (note, killing disabled for that particular deployment)
+You can see a [live demo here](https://cf-demo-node.cfapps.io/) (note, killing is disabled for that particular deployment)
