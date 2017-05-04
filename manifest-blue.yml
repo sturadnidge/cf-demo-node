@@ -4,6 +4,7 @@ applications:
   memory: 128M
   instances: 1
   random-route: true
+  command: node app.js
   env:
     NODE_ENV: dev
     REDIS_SERVICE_NAME: none
