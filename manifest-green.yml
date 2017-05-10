@@ -8,4 +8,4 @@ applications:
   env:
     NODE_ENV: dev
     REDIS_SERVICE_NAME: none
-    THEME: vine
+    COLOUR: 22a387

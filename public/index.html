@@ -51,7 +51,7 @@
 
     <template id="instance-template">
       <div class="col-md-4 col-sm-6 col-xs-12 text-center">
-        <img :src="'holder.js/100px280?text=' + index +  '&theme=' + theme">
+        <img :src="'holder.js/100px280?text=' + index +  '&bg=' + colour">
         <p v-if="thisInstance" class="line-50">
           <a :href="'/killme?id=' + index">kill me</a>
         </p>
@@ -74,12 +74,11 @@
       <h1>{{ applicationName }} <small>app id: {{ applicationId }}</small>
       </h1>
       <p v-if="redis" class="lead">
-        Redis is <strong>enabled</strong>. The instances behind the app are below, you are viewing instance <strong>{{ instanceIndex }}</strong>.
+        Redis is <strong>enabled</strong>. The instances behind the app are below, the instance you are viewing is <strong :style="'color: #' + colour">highlighted</strong>.
       </p>
       <p v-else class="lead">
         Redis is <strong>disabled</strong>.
       </p>
-
       <instances-component :instances="instances"></instances-component>
 
       <!-- footer -->
@@ -112,8 +111,8 @@
       computed: {
         // compare this instance (which is an id) with global instanceId
         // and set theme to 'lava' if they match
-        theme: function() {
-          return this.instance === globalInstance.instanceId ? globalInstance.theme : 'gray';
+        colour: function() {
+          return this.instance === globalInstance.instanceId ? globalInstance.colour : 'f8f8f8';
         },
         thisInstance: function() {
           return this.instance === globalInstance.instanceId;

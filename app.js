@@ -20,7 +20,7 @@ var apiVersion = 0,
     instanceId = '',
     instanceIndex = '',
     redisEnabled = false,
-    theme = '',
+    colour = '',
     versionPrefix = '';
 
 if (apiVersion !== 0) {
@@ -50,7 +50,7 @@ if (isCF.env()) {
   instanceId = vcap.instanceId;
   instanceIndex = vcap.instanceIndex;
   redisEnabled = isCF.getService(process.env.REDIS_SERVICE_NAME) ? true : false;
-  theme = process.env.THEME;
+  colour = process.env.COLOUR;
 
   app.set('vcap', vcap);
 
@@ -60,7 +60,7 @@ if (isCF.env()) {
   appId = uuid();
   instanceId = appId;
   instanceIndex = 0;
-  theme = 'lava';
+  colour = 'e44332';
 
 }
 
@@ -71,7 +71,7 @@ app.set('instanceAddress', instanceAddress);
 app.set('instanceId', instanceId);
 app.set('instanceIndex', instanceIndex);
 app.set('redisEnabled', redisEnabled);
-app.set('theme', theme);
+app.set('colour', colour);
 
 // express variables
 app.enable('trust proxy');
