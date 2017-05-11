@@ -54,7 +54,7 @@
         <img v-if="redis" :src="'holder.js/100px280?text=' + index +  '&bg=' + colour">
         <img v-else :src="'holder.js/100px280?fg=' + colour + '&bg=' + colour">
         <p v-if="thisInstance" class="line-50">
-          <a :href="'/killme?id=' + index">kill me</a>
+          <a :href="'/killme?index=' + index">kill me</a>
         </p>
         <p v-else class="line-50">id: {{ instance }}</p>
       </div>
