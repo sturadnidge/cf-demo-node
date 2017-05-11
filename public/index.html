@@ -75,7 +75,7 @@
       <h1>{{ applicationName }} <small>app id: {{ applicationId }}</small>
       </h1>
       <p v-if="redis" class="lead">
-        Redis is <strong>enabled</strong>. The instances behind the app are below, the instance you are viewing is <strong :style="'color: #' + colour">highlighted</strong>.
+        Redis is <strong>enabled</strong>. There are <strong>{{ instances.length }}</strong> instances behind this app, the one you are viewing is <strong :style="'color: #' + colour">highlighted</strong>.
       </p>
       <p v-else class="lead">
         Redis is <strong>disabled</strong>.
