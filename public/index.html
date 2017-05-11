@@ -51,7 +51,8 @@
 
     <template id="instance-template">
       <div class="col-md-4 col-sm-6 col-xs-12 text-center">
-        <img :src="'holder.js/100px280?text=' + index +  '&bg=' + colour">
+        <img v-if="redis" :src="'holder.js/100px280?text=' + index +  '&bg=' + colour">
+        <img v-else :src="'holder.js/100px280?fg=' + colour + '&bg=' + colour">
         <p v-if="thisInstance" class="line-50">
           <a :href="'/killme?id=' + index">kill me</a>
         </p>
@@ -116,6 +117,9 @@
         },
         thisInstance: function() {
           return this.instance === globalInstance.instanceId;
+        },
+        redis: function() {
+          return globalInstance.redis;
         }
       }
     });
