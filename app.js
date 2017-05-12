@@ -16,11 +16,12 @@ var app = express();
 var apiVersion = 0,
     appId = '',
     appName = '',
+    colour = '',
     instanceAddress = '',
     instanceId = '',
     instanceIndex = '',
     redisEnabled = false,
-    colour = '',
+    registerer = '',
     versionPrefix = '';
 
 if (apiVersion !== 0) {
@@ -125,7 +126,17 @@ http.createServer(app).listen(app.get('port'), function(){
   lib.service.register(appId, instanceId, instanceIndex, function(err, result) {
     if (err) throw err;
     console.log('Express server listening on port ' + app.get('port'));
+    // if redis is enabled, re-register every second hereafter
+    if (redisEnabled) {
+      registerer = setInterval(function(){
+        lib.service.register(appId, instanceId, instanceIndex, function(err, result) {
+          if (err) console.log('error re-registering instance ' + instanceId);
+        });
+      }, 1000);
+    }
   });
 });
+
+
 
 module.exports = app; // for testing
