@@ -30,7 +30,6 @@ if (apiVersion !== 0) {
 
 // globals
 app.set('port', process.env.PORT || 3000);
-app.set('authHeader', 'X-Auth-Token');
 app.set('json spaces', 2);
 
 // attach vcap data to app var
