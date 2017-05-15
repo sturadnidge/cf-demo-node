@@ -1,6 +1,6 @@
 ---
 applications:
-- name: cf-demo-node-blue
+- name: cf-demo-node-v2
   memory: 128M
   instances: 1
   random-route: true
@@ -8,4 +8,4 @@ applications:
   env:
     NODE_ENV: dev
     REDIS_SERVICE_NAME: none
-    COLOUR: 227fa3
+    COLOUR: 22a387
