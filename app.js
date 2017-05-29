@@ -49,7 +49,7 @@ if (isCF.env()) {
   instanceAddress = vcap.hostAddress;
   instanceId = vcap.instanceId;
   instanceIndex = vcap.instanceIndex;
-  redisEnabled = isCF.getService(process.env.REDIS_SERVICE_NAME) ? true : false;
+  redisEnabled = isCF.getServiceInstance(process.env.REDIS_PROVIDER, process.env.REDIS_INSTANCE_NAME) ? true : false;
   colour = process.env.COLOUR;
 
   app.set('vcap', vcap);

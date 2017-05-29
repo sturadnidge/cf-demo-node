@@ -7,5 +7,6 @@ applications:
   command: node app.js
   env:
     NODE_ENV: dev
-    REDIS_SERVICE_NAME: none
+    REDIS_PROVIDER: none
+    REDIS_INSTANCE_NAME: none
     COLOUR: e44332
