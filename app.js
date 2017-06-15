@@ -13,7 +13,7 @@ var bodyParser = require('body-parser'),
 
 var app = express();
 
-var apiVersion = 0,
+var apiVersion = process.env.API_VERSION || 0,
     appId = '',
     appName = '',
     colour = '',
@@ -29,6 +29,7 @@ if (apiVersion !== 0) {
 }
 
 // globals
+app.set('apiVersion', apiVersion);
 app.set('port', process.env.PORT || 3000);
 app.set('json spaces', 2);
 
@@ -87,17 +88,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // routes
-app.route('/clean')
+app.route(versionPrefix + '/clean')
   .get(
     lib.routes.get.clean
   );
 
-app.route('/info')
+app.route(versionPrefix + '/info')
   .get(
     lib.routes.get.info
   );
 
-app.route('/killme')
+app.route(versionPrefix + '/killme')
   .get(
     lib.routes.get.kill
   );
