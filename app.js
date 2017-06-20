@@ -83,22 +83,29 @@ app.use(function(req, res, next) {
 });
 
 // middleware
-app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+// mount static page on versioned path if it exists
+if (versionPrefix) {
+  app.use(versionPrefix, express.static(path.join(__dirname, 'public')));
+} else {
+  app.use(express.static(path.join(__dirname, 'public')));
+}
 
 // routes
-app.route(versionPrefix + '/clean')
+// regex is to handle versionPrefix if present
+app.route(/(\/v\d+)?\/clean/)
   .get(
     lib.routes.get.clean
   );
 
-app.route(versionPrefix + '/info')
+app.route(/(\/v\d+)?\/info/)
   .get(
     lib.routes.get.info
   );
 
-app.route(versionPrefix + '/killme')
+app.route(/(\/v\d+)?\/kill/)
   .get(
     lib.routes.get.kill
   );
